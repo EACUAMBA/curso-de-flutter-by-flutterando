@@ -8,17 +8,25 @@ main() {
   //Vamos usar widgets especificos para fazer coisas eespecificas, nesse formatode child: widget
 
   //Temos dois tipos de widgets, stateless(não muda de estado) e statefull(Muda de estado)
-  runApp(
-    Container(
-    child: Center(
+  runApp(const Appwidget(titulo: "Fluterando",));
+}
+
+class Appwidget extends StatelessWidget {
+  final String titulo;
+
+  const Appwidget({Key? key, required this.titulo}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
       child: Text(
-        'Edilson aprendendo Flutter.',
+        titulo,
         textDirection: TextDirection.ltr,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.blueGrey,
           fontSize: 16.0,
         ),
       ),
-    ),
-  ));
+    );
+  }
 }
