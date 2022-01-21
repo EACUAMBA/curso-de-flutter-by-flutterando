@@ -1,7 +1,6 @@
-//Metodo principal da aplicação, o primeiro a rodar.
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+//Metodo principal da aplicação, o primeiro a rodar.
 main() {
   //Este metodo é do flutter, ele é utilizado para iniciar a nossa aplicação, como parametro ele precisa de uma widget.
   //Um widgets é um estado de tela, é uma classe que estende um widget. Entenda como conponent.
