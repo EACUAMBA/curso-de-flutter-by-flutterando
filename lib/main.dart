@@ -8,7 +8,9 @@ main() {
   //Vamos usar widgets especificos para fazer coisas eespecificas, nesse formatode child: widget
 
   //Temos dois tipos de widgets, stateless(não muda de estado) e statefull(Muda de estado)
-  runApp(const Appwidget(titulo: "Fluterando",));
+  runApp(const Appwidget(
+    titulo: "Fluterando",
+  ));
 }
 
 class Appwidget extends StatelessWidget {
@@ -18,14 +20,10 @@ class Appwidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        titulo,
-        textDirection: TextDirection.ltr,
-        style: const TextStyle(
-          color: Colors.blueGrey,
-          fontSize: 16.0,
-        ),
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.red),
+      home: Container(
+        child: Center(child: Text("Texto")),
       ),
     );
   }
