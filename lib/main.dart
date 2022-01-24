@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 //Metodo principal da aplicação, o primeiro a rodar.
@@ -21,10 +23,38 @@ class Appwidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.red),
-      home: Container(
-        child: Center(child: Text("Texto")),
-      ),
+      theme: ThemeData.light(),
+      home: HomePage(),
+    );
+  }
+}
+
+//Criando o nosso widget statafull
+class HomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // Retornamos o estado da tela
+    return HomePageState();
+  }
+}
+
+//Todo widget statefull precisa ter um State associado, este é o state do HomePage, ele retorna um widget com o estado da tela. 
+class HomePageState extends State<HomePage> {
+  int count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+          child: GestureDetector(
+              child: Text("Fluterrando $count"),
+              onTap: () {
+                //Usado para dizer ao motor que ele deve rebuild o widget e agora com está nova variavel actualizada.
+                setState(() {
+                  count += 1;
+                });
+              }),
+              ),
     );
   }
 }
