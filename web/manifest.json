@@ -1,6 +1,6 @@
 {
-    "name": "ola_mundo",
-    "short_name": "ola_mundo",
+    "name": "curso_de_flutter_by_flutterando",
+    "short_name": "curso_de_flutter_by_flutterando",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
