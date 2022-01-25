@@ -10,9 +10,7 @@ main() {
   //Vamos usar widgets especificos para fazer coisas eespecificas, nesse formatode child: widget
 
   //Temos dois tipos de widgets, stateless(não muda de estado) e statefull(Muda de estado)
-  runApp(const Appwidget(
-    titulo: "Fluterando",
-  ));
+  runApp(Appwidget());
 }
 
 
