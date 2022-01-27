@@ -27,11 +27,14 @@ class HomePageState extends State<HomePage> {
           width: 200,
           height: 200,
           color: Colors.blueAccent,
-          //Como estamos usando apenas um reder ele está herdando algumas caracteristicas do seu pai, nesta situação herda a dimensão.
-          child: Container(
-            width: 100,
-            height: 100,
-            color: Colors.amber,
+          //O align é um widget multi render, ele não usa o reder antigo para renderizar, vai usar outro, existem muitos outros que também implementam multirender.
+          child: Align(
+            alignment: Alignment.center,
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.amber,
+            ),
           ),
         ),
         floatingActionButton:  FloatingActionButton(
