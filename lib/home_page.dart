@@ -28,11 +28,20 @@ class HomePageState extends State<HomePage> {
         body: SizedBox(
           width: double.infinity,
           height: double.infinity,
-          child: Column(
-            //Alinhamento vertical
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [Text("Contador: $count"), DarkThemeSwitch(),],
+            children: [
+              Container(width: 16, height: 16, color: Colors.blueAccent),
+              Container(
+                width: 400-72,
+                child: Column(
+                  //Alinhamento vertical
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Row(children: [Text("Contador: $count"), DarkThemeSwitch()],)],
+                ),
+              ),
+              Container(width: 16, height: 16, color: Colors.blueAccent),
+            ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
@@ -52,9 +61,10 @@ class DarkThemeSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Switch(
-      onChanged: (value){
-          AppController.instance.changeTheme();
-      }, value: AppController.instance.isDarkTheme,
+      onChanged: (value) {
+        AppController.instance.changeTheme();
+      },
+      value: AppController.instance.isDarkTheme,
     );
   }
 }
