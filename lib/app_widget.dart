@@ -8,6 +8,7 @@ class Appwidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //AnimatedBuilder é um observer e esta atendo ao sinal do Observable app_controller, assim que o app_controller notificar este builder, ele vai renderizar novamente a tela.
     return AnimatedBuilder(
       animation: AppController.instance,
       builder: (BuildContext context, Widget? child) {
