@@ -25,8 +25,15 @@ class HomePageState extends State<HomePage> {
           title: const Text("Edilson Alexandre Cuamba"),
           actions: [DarkThemeSwitch()],
         ),
-        body: Center(
-          child: DarkThemeSwitch(),
+        body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            //Alinhamento vertical
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [Text("$count"), DarkThemeSwitch(),],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
