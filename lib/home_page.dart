@@ -19,24 +19,18 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       //O scaffold é um widget que tem uma aparencia bonita. ele e o Material funcionam do mesmo jeito, a diferença é que o Scaffold já é completo.
-      child:  Scaffold(
-        appBar:  AppBar(
+      child: Scaffold(
+        appBar: AppBar(
           centerTitle: true,
-          title:  const Text("Edilson Alexandre Cuamba"),
+          title: const Text("Edilson Alexandre Cuamba"),
+          actions: [DarkThemeSwitch()],
         ),
         body: Center(
-          child: Switch(
-            onChanged: (value){
-             setState(() {
-               AppController.instance.changeTheme();
-             });
-            }, value: AppController.instance.isDarkTheme,
-            
-          ),
+          child: DarkThemeSwitch(),
         ),
-        floatingActionButton:  FloatingActionButton(
-          child:  const Icon(Icons.add),
-          onPressed: (){
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
             setState(() {
               count++;
             });
@@ -47,4 +41,14 @@ class HomePageState extends State<HomePage> {
   }
 }
 
+class DarkThemeSwitch extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Switch(
+      onChanged: (value){
+          AppController.instance.changeTheme();
+      }, value: AppController.instance.isDarkTheme,
+    );
+  }
+}
 //O Scaffold() é mais completo que o Material(),
