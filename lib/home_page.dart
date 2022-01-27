@@ -32,7 +32,7 @@ class HomePageState extends State<HomePage> {
             //Alinhamento vertical
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [Text("$count"), DarkThemeSwitch(),],
+            children: [Text("Contador: $count"), DarkThemeSwitch(),],
           ),
         ),
         floatingActionButton: FloatingActionButton(
