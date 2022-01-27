@@ -32,13 +32,23 @@ class HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(width: 16, height: 16, color: Colors.blueAccent),
-              Container(
-                width: 400-72,
-                child: Column(
-                  //Alinhamento vertical
-                  // mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Row(children: [Text("Contador: $count"), DarkThemeSwitch()],)],
-                ),
+              SizedBox(
+                  width: 400 - 72,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [Text("Contador: $count"), DarkThemeSwitch(),
+                      Align(child: Container(width: 100, height: 100, color: Colors.blueAccent),),
+                      Align(child: Container(width: 100, height: 100, color: Colors.deepPurple)),
+                      Align(child: Container(width: 100, height: 100, color: Colors.blueAccent),),
+                      Align(child: Container(width: 100, height: 100, color: Colors.deepPurple)),
+                      Align(child: Container(width: 100, height: 100, color: Colors.blueAccent),),
+                      Align(child: Container(width: 100, height: 100, color: Colors.deepPurple)),
+                      Align(child: Container(width: 100, height: 100, color: Colors.blueAccent),),
+                      Align(child: Container(width: 100, height: 100, color: Colors.deepPurple)),
+
+
+                    ],
+                  )
               ),
               Container(width: 16, height: 16, color: Colors.blueAccent),
             ],
