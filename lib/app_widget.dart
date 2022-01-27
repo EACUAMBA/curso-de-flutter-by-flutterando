@@ -1,8 +1,8 @@
 
 import 'package:curso_de_flutter_by_fluterrando/app_controllerr.dart';
+import 'package:curso_de_flutter_by_fluterrando/login_page.dart';
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
 
 class Appwidget extends StatelessWidget {
 
@@ -16,7 +16,7 @@ class Appwidget extends StatelessWidget {
               primaryColor: Colors.blue,
               brightness: AppController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
           ),
-          home: HomePage(),
+          home: LoginPageWidget(),
           debugShowCheckedModeBanner: true,
         );
       },
