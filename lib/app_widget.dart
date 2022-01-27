@@ -1,5 +1,5 @@
 
-import 'package:curso_de_flutter_by_fluterrando/app_controllerr.dart';
+import 'package:curso_de_flutter_by_fluterrando/app_controller.dart';
 import 'package:curso_de_flutter_by_fluterrando/login_page.dart';
 import 'package:flutter/material.dart';
 

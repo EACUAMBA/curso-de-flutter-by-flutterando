@@ -1,5 +1,5 @@
 //Criando o nosso widget statafull
-import 'package:curso_de_flutter_by_fluterrando/app_controllerr.dart';
+import 'package:curso_de_flutter_by_fluterrando/app_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

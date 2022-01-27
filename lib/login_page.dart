@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'home_page.dart';
+
 class LoginPageWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -47,8 +49,14 @@ class LoginPageState extends State<LoginPageWidget> {
                 Container(height: 16,),
                 ElevatedButton(
                     onPressed: () {
-                      if(email == "edilsoncuamba@gmail.com" && password == "12345"){
+                      if(email == "edilson" && password == "12345"){
                         print("Entrou!");
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+
+                            builder: (context) => HomePage(),
+                          )
+                        );
                       }else{
                         print("Email ou senha incorecta.");
                       }
