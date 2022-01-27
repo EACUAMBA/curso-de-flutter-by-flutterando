@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // Retornamos o estado da tela
+    // Retornamos o estado actual da tela
     return HomePageState();
   }
 }
@@ -17,25 +17,25 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: new Scaffold(
-        appBar: new AppBar(
+      //O scaffold é um widget que tem uma aparencia bonita. ele e o Material funcionam do mesmo jeito, a diferença é que o Scaffold já é completo.
+      child:  Scaffold(
+        appBar:  AppBar(
           centerTitle: true,
-          title: new Text("Edilson Alexandre Cuamba"),
+          title:  const Text("Edilson Alexandre Cuamba"),
         ),
-        body: new Center(
-          child: new GestureDetector(
-            child: new Text(count.toString(), style: new TextStyle(fontSize: 20, color: Colors.blue),),
-            onTap: (){
-              setState(() {
-                count++;
-              });
-            },
+        body:  Container(
+          width: 200,
+          height: 200,
+          color: Colors.blueAccent,
+          //Como estamos usando apenas um reder ele está herdando algumas caracteristicas do seu pai, nesta situação herda a dimensão.
+          child: Container(
+            width: 100,
+            height: 100,
+            color: Colors.amber,
           ),
         ),
-        floatingActionButton: new FloatingActionButton(
-          child: new Icon(
-              Icons.add
-          ),
+        floatingActionButton:  FloatingActionButton(
+          child:  const Icon(Icons.add),
           onPressed: (){
             setState(() {
               count++;
