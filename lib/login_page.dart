@@ -49,14 +49,9 @@ class LoginPageState extends State<LoginPageWidget> {
                 Container(height: 16,),
                 ElevatedButton(
                     onPressed: () {
-                      if(email == "edilson" && password == "12345"){
+                      if(email == "email" && password == "senha"){
                         print("Entrou!");
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-
-                            builder: (context) => HomePage(),
-                          )
-                        );
+                        Navigator.of(context).pushReplacementNamed('/home');
                       }else{
                         print("Email ou senha incorecta.");
                       }
