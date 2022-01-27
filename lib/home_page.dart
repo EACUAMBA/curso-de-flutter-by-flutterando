@@ -1,4 +1,5 @@
 //Criando o nosso widget statafull
+import 'package:curso_de_flutter_by_fluterrando/app_controllerr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,18 +24,14 @@ class HomePageState extends State<HomePage> {
           centerTitle: true,
           title:  const Text("Edilson Alexandre Cuamba"),
         ),
-        body:  Container(
-          width: 200,
-          height: 200,
-          color: Colors.blueAccent,
-          //O align é um widget multi render, ele não usa o reder antigo para renderizar, vai usar outro, existem muitos outros que também implementam multirender.
-          child: Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.amber,
-            ),
+        body: Center(
+          child: Switch(
+            onChanged: (value){
+             setState(() {
+               AppController.instance.changeTheme();
+             });
+            }, value: AppController.instance.isDarkTheme,
+            
           ),
         ),
         floatingActionButton:  FloatingActionButton(
