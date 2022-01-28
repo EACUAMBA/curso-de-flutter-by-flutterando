@@ -27,23 +27,7 @@ class LoginPageState extends State<LoginPageWidget> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Bem vindo a',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
-                Container(
-                  height: 16,
-                ),
-                const Center(
-                  child: Text(
-                    'EXI - Engenharia e Comercialização de Sistemas Informáticos, Lda.',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  height: 16,
-                ),
+
                 Card(
                   color: Colors.white.withOpacity(1),
                   child: Padding(
@@ -103,6 +87,10 @@ class LoginPageState extends State<LoginPageWidget> {
                     ),
                   ),
                 ),
+                Container(height: 32,),
+                Row(
+                  children: [Checkbox(value: true, onChanged: (value){}, fillColor: MaterialStateProperty.all(Colors.white), checkColor: Color.fromRGBO(0, 98, 175, 1),),
+                  Text("Termos e condições aplicaveis.", style: TextStyle(color: Colors.white.withOpacity(0.75)),)],)
               ],
             ),
           ),
