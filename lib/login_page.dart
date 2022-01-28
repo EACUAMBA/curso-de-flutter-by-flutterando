@@ -17,6 +17,7 @@ class LoginPageState extends State<LoginPageWidget> {
 
   Widget _body() {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -26,14 +27,17 @@ class LoginPageState extends State<LoginPageWidget> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Bem vindo a'),
+                const Text(
+                  'Bem vindo a',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
                 Container(
                   height: 16,
                 ),
                 const Center(
                   child: Text(
                     'EXI - Engenharia e Comercialização de Sistemas Informáticos, Lda.',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -51,7 +55,7 @@ class LoginPageState extends State<LoginPageWidget> {
                   },
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
-                    label: Text('Email'),
+                    label: Text('Email', style: TextStyle(fontSize: 16, color: Colors.white),),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -64,7 +68,7 @@ class LoginPageState extends State<LoginPageWidget> {
                   },
                   obscureText: true,
                   decoration: const InputDecoration(
-                    label: Text('Senha'),
+                    label: Text('Senha', style: TextStyle(fontSize: 16, color: Colors.white),),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -91,6 +95,22 @@ class LoginPageState extends State<LoginPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return _body();
+    return Scaffold(
+      body: Stack(
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Image.asset(
+              'assets/img/background.jpg',
+              fit: BoxFit.cover,
+              alignment: Alignment.centerRight,
+            ),
+          ),
+          Container(color: Colors.black.withOpacity(0.4),),
+          _body()
+        ],
+      ),
+    );
   }
 }
