@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'home_page.dart';
 
@@ -11,12 +13,11 @@ class LoginPageWidget extends StatefulWidget {
 }
 
 class LoginPageState extends State<LoginPageWidget> {
-  String email = "", password= "";
+  String email = "", password = "";
 
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Padding(
+  Widget _body() {
+    return Scaffold(
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: SizedBox(
@@ -25,6 +26,25 @@ class LoginPageState extends State<LoginPageWidget> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Text('Bem vindo a'),
+                Container(
+                  height: 16,
+                ),
+                const Center(
+                  child: Text(
+                    'EXI - Engenharia e Comercialização de Sistemas Informáticos, Lda.',
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  width: 150,
+                  height: 150,
+                  child: SvgPicture.asset('https://exi.co.mz/wp-content/themes/exi/img/logo.svg'),
+                ),
+                Container(
+                  height: 16,
+                ),
                 TextField(
                   onChanged: (value) {
                     email = value;
@@ -35,29 +55,32 @@ class LoginPageState extends State<LoginPageWidget> {
                     border: OutlineInputBorder(),
                   ),
                 ),
-                Container(height: 16,),
+                Container(
+                  height: 16,
+                ),
                 TextField(
-                  onChanged: (value){
+                  onChanged: (value) {
                     password = value;
                   },
                   obscureText: true,
-                  decoration: const  InputDecoration(
+                  decoration: const InputDecoration(
                     label: Text('Senha'),
                     border: OutlineInputBorder(),
                   ),
                 ),
-                Container(height: 16,),
+                Container(
+                  height: 16,
+                ),
                 ElevatedButton(
                     onPressed: () {
-                      if(email == "email" && password == "senha"){
+                      if (email == "email" && password == "senha") {
                         print("Entrou!");
                         Navigator.of(context).pushReplacementNamed('/home');
-                      }else{
+                      } else {
                         print("Email ou senha incorecta.");
                       }
                     },
-                    child: const Text("Entrar")
-                )
+                    child: const Text("Entrar"))
               ],
             ),
           ),
@@ -66,4 +89,8 @@ class LoginPageState extends State<LoginPageWidget> {
     );
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return _body();
+  }
 }
