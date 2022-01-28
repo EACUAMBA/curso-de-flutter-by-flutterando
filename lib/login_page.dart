@@ -40,7 +40,7 @@ class LoginPageState extends State<LoginPageWidget> {
                 SizedBox(
                   width: 150,
                   height: 150,
-                  child: SvgPicture.asset('https://exi.co.mz/wp-content/themes/exi/img/logo.svg'),
+                  child: SvgPicture.asset('assets/icon/logo.svg'),
                 ),
                 Container(
                   height: 16,
