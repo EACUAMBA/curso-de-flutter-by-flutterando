@@ -60,6 +60,7 @@ flutter:
   assets:
     - assets/icon/logo.svg
     - assets/img/background.jpg
+    - assets/icon/tinder.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

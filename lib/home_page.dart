@@ -24,7 +24,8 @@ class HomePageState extends State<HomePage> {
           child: Column(
             children: [
               UserAccountsDrawerHeader(
-                accountName:Text("Edilson Alexandre Cuamba") ,
+                decoration: BoxDecoration(color: Color.fromRGBO(0, 98, 175, 1)),
+                accountName:Text("Edilson Alexandre Cuamba"),
                 accountEmail: Text("Engenheiro de Software"),
                 currentAccountPicture: ClipOval(
                   child: Image.network('https://media-exp1.licdn.com/dms/image/C4D03AQHorgygUskcSQ/profile-displayphoto-shrink_200_200/0/1625686861244?e=1648684800&v=beta&t=JgCay-z5oVKWVhTwvcyDWIupK5r9RzhL56jgn9UYofs'),
@@ -46,6 +47,15 @@ class HomePageState extends State<HomePage> {
                 leading: Icon(Icons.work_outline_outlined),
                 title: Text("Tarefas"),
                 subtitle: Text("Veja as tarefas que deve realizar."),
+              ),
+              ListTile(
+                leading: Icon(Icons.work_outline_outlined),
+                title: Text("Desafion do Tinder"),
+                subtitle: Text("Veja a tela que fiz no desafio"),
+                enabled: true,
+                onTap: (){
+                  Navigator.of(context).pushNamed('/tinder-login');
+                }
               )
 
             ],

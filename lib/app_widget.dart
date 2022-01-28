@@ -1,5 +1,6 @@
 
 import 'package:curso_de_flutter_by_fluterrando/app_controller.dart';
+import 'package:curso_de_flutter_by_fluterrando/desafios/tela_do_tinder/main.dart';
 import 'package:curso_de_flutter_by_fluterrando/home_page.dart';
 import 'package:curso_de_flutter_by_fluterrando/login_page.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class Appwidget extends StatelessWidget {
           routes: {
             '/' : (context)=> LoginPageWidget(),
             '/home': (context)=> HomePage(),
+            '/tinder-login': (context)=> TinderLogin(),
           },
           debugShowCheckedModeBanner: true,
         );

@@ -75,6 +75,8 @@ class LoginPageState extends State<LoginPageWidget> {
                                 Navigator.of(context).pushReplacementNamed('/home');
                               } else {
                                 print("Email ou senha incorecta.");
+                                Navigator.of(context).pushReplacementNamed('/home');
+
                               }
                             },
                             style: ButtonStyle(
