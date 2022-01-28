@@ -20,9 +20,38 @@ class HomePageState extends State<HomePage> {
     return Container(
       //O scaffold é um widget que tem uma aparencia bonita. ele e o Material funcionam do mesmo jeito, a diferença é que o Scaffold já é completo.
       child: Scaffold(
+        drawer: Drawer(
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                accountName:Text("Edilson Alexandre Cuamba") ,
+                accountEmail: Text("Engenheiro de Software"),
+                currentAccountPicture: Image.network('https://media-exp1.licdn.com/dms/image/C4D03AQHorgygUskcSQ/profile-displayphoto-shrink_200_200/0/1625686861244?e=1648684800&v=beta&t=JgCay-z5oVKWVhTwvcyDWIupK5r9RzhL56jgn9UYofs'),
+              ),
+              const ListTile(
+                leading: Icon(Icons.email_outlined),
+                title: Text("Mensagens"),
+                subtitle: Text("Veja a sua lista de mensagens"),
+                trailing:  Icon(Icons.arrow_drop_down),
+              ),
+              const ListTile(
+                leading: Icon(Icons.email_outlined),
+                title: Text("Nova mensagem.."),
+                subtitle: Text("Envie uma mensagem para um novo contacto."),
+              ),
+              const ListTile(
+                leading: Icon(Icons.work_outline_outlined),
+                title: Text("Tarefas"),
+                subtitle: Text("Veja as tarefas que deve realizar."),
+              )
+
+            ],
+          ),
+        ),
         appBar: AppBar(
+        backgroundColor: Color.fromRGBO(0, 98, 175, 1),
           centerTitle: true,
-          title: const Text("Edilson Alexandre Cuamba"),
+          title: const Text("Actividades"),
           actions: [DarkThemeSwitch()],
         ),
         body: SizedBox(
