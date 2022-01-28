@@ -26,7 +26,10 @@ class HomePageState extends State<HomePage> {
               UserAccountsDrawerHeader(
                 accountName:Text("Edilson Alexandre Cuamba") ,
                 accountEmail: Text("Engenheiro de Software"),
-                currentAccountPicture: Image.network('https://media-exp1.licdn.com/dms/image/C4D03AQHorgygUskcSQ/profile-displayphoto-shrink_200_200/0/1625686861244?e=1648684800&v=beta&t=JgCay-z5oVKWVhTwvcyDWIupK5r9RzhL56jgn9UYofs'),
+                currentAccountPicture: ClipOval(
+                  child: Image.network('https://media-exp1.licdn.com/dms/image/C4D03AQHorgygUskcSQ/profile-displayphoto-shrink_200_200/0/1625686861244?e=1648684800&v=beta&t=JgCay-z5oVKWVhTwvcyDWIupK5r9RzhL56jgn9UYofs'),
+                  //borderRadius: BorderRadius.all(Radius.circular(40)),
+                ),
               ),
               const ListTile(
                 leading: Icon(Icons.email_outlined),
