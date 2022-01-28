@@ -41,50 +41,68 @@ class LoginPageState extends State<LoginPageWidget> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(
-                  width: 150,
-                  height: 150,
-                  child: SvgPicture.asset('assets/icon/logo.svg'),
-                ),
                 Container(
                   height: 16,
                 ),
-                TextField(
-                  onChanged: (value) {
-                    email = value;
-                  },
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    label: Text('Email', style: TextStyle(fontSize: 16, color: Colors.white),),
-                    border: OutlineInputBorder(),
+                Card(
+                  color: Colors.white.withOpacity(1),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 16, left: 16, top: 16, bottom: 16),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: 150,
+                          height: 150,
+                          child: SvgPicture.asset('assets/icon/logo.svg'),
+                        ),
+                        Container(
+                          height: 16,
+                        ),
+                        TextField(
+                          onChanged: (value) {
+                            email = value;
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: const InputDecoration(
+                            label: Text('Email', style: TextStyle(fontSize: 16),),
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        Container(
+                          height: 16,
+                        ),
+                        TextField(
+                          onChanged: (value) {
+                            password = value;
+                          },
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                            label: Text('Senha', style: TextStyle(fontSize: 16),),
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        Container(
+                          height: 16,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              if (email == "email" && password == "senha") {
+                                print("Entrou!");
+                                Navigator.of(context).pushReplacementNamed('/home');
+                              } else {
+                                print("Email ou senha incorecta.");
+                              }
+                            },
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(Color.fromRGBO(0, 98, 175, 1)),
+                                minimumSize: MaterialStateProperty.all(Size(double.infinity, 50)),
+
+                            ),
+                            child: const Text("Entrar", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),))
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  height: 16,
-                ),
-                TextField(
-                  onChanged: (value) {
-                    password = value;
-                  },
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    label: Text('Senha', style: TextStyle(fontSize: 16, color: Colors.white),),
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                Container(
-                  height: 16,
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      if (email == "email" && password == "senha") {
-                        print("Entrou!");
-                        Navigator.of(context).pushReplacementNamed('/home');
-                      } else {
-                        print("Email ou senha incorecta.");
-                      }
-                    },
-                    child: const Text("Entrar"))
               ],
             ),
           ),
