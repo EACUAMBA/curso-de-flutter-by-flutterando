@@ -2,6 +2,7 @@
 import 'package:curso_de_flutter_by_fluterrando/app_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,42 +23,65 @@ class HomePageState extends State<HomePage> {
       child: Scaffold(
         drawer: Drawer(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Color.fromRGBO(0, 98, 175, 1)),
-                accountName:Text("Edilson Alexandre Cuamba"),
-                accountEmail: Text("Engenheiro de Software"),
-                currentAccountPicture: ClipOval(
-                  child: Image.network('https://media-exp1.licdn.com/dms/image/C4D03AQHorgygUskcSQ/profile-displayphoto-shrink_200_200/0/1625686861244?e=1648684800&v=beta&t=JgCay-z5oVKWVhTwvcyDWIupK5r9RzhL56jgn9UYofs'),
-                  //borderRadius: BorderRadius.all(Radius.circular(40)),
-                ),
+              Column(
+                children: [
+                  UserAccountsDrawerHeader(
+                    decoration: BoxDecoration(color: Color.fromRGBO(0, 98, 175, 1)),
+                    accountName:Text("Edilson Alexandre Cuamba"),
+                    accountEmail: Text("Engenheiro de Software"),
+                    currentAccountPicture: ClipOval(
+                      child: Image.network('https://media-exp1.licdn.com/dms/image/C4D03AQHorgygUskcSQ/profile-displayphoto-shrink_200_200/0/1625686861244?e=1648684800&v=beta&t=JgCay-z5oVKWVhTwvcyDWIupK5r9RzhL56jgn9UYofs'),
+                      //borderRadius: BorderRadius.all(Radius.circular(40)),
+                    ),
+                  ),
+                  const ListTile(
+                    leading: Icon(Icons.email_outlined),
+                    title: Text("Mensagens"),
+                    subtitle: Text("Veja a sua lista de mensagens"),
+                    trailing:  Icon(Icons.arrow_drop_down),
+                  ),
+                  const ListTile(
+                    leading: Icon(Icons.email_outlined),
+                    title: Text("Nova mensagem.."),
+                    subtitle: Text("Envie uma mensagem para um novo contacto."),
+                  ),
+                  const ListTile(
+                    leading: Icon(Icons.work_outline_outlined),
+                    title: Text("Tarefas"),
+                    subtitle: Text("Veja as tarefas que deve realizar."),
+                  ),
+                  ListTile(
+                      leading: Icon(Icons.work_outline_outlined),
+                      title: Text("Desafion do Tinder"),
+                      subtitle: Text("Veja a tela que fiz no desafio"),
+                      enabled: true,
+                      onTap: (){
+                        Navigator.of(context).pushNamed('/tinder-login');
+                      }
+                  )
+                ],
               ),
-              const ListTile(
-                leading: Icon(Icons.email_outlined),
-                title: Text("Mensagens"),
-                subtitle: Text("Veja a sua lista de mensagens"),
-                trailing:  Icon(Icons.arrow_drop_down),
-              ),
-              const ListTile(
-                leading: Icon(Icons.email_outlined),
-                title: Text("Nova mensagem.."),
-                subtitle: Text("Envie uma mensagem para um novo contacto."),
-              ),
-              const ListTile(
-                leading: Icon(Icons.work_outline_outlined),
-                title: Text("Tarefas"),
-                subtitle: Text("Veja as tarefas que deve realizar."),
-              ),
-              ListTile(
-                leading: Icon(Icons.work_outline_outlined),
-                title: Text("Desafion do Tinder"),
-                subtitle: Text("Veja a tela que fiz no desafio"),
-                enabled: true,
-                onTap: (){
-                  Navigator.of(context).pushNamed('/tinder-login');
-                }
-              )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 8, top: 8, right: 16, bottom: 8),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: const Size(double.infinity, 50),
+                          elevation: 5,
+                          primary: Colors.pink,
+                      ),
+                      onPressed: (){
+                        Navigator.pushReplacementNamed(context, '/');
+                      },
+                      child: Text('Logout')),
 
+                  )
+                ],
+              )
             ],
           ),
         ),
