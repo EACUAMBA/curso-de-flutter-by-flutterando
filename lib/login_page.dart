@@ -1,9 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'home_page.dart';
 
 class LoginPageWidget extends StatefulWidget {
   @override
@@ -14,6 +14,20 @@ class LoginPageWidget extends StatefulWidget {
 
 class LoginPageState extends State<LoginPageWidget> {
   String email = "", password = "";
+  bool? _termo_e_condicoes = false;
+
+ Future<void> _mostrarTermos_e_Condicoes() async {
+   return showDialog(
+       context: context,
+       builder: (context){
+         return AlertDialog(
+           title: Text("Aceite os termos e condições aplicaveis."),
+           content: Text("Tens de aceitar os termos e condicoes para poder usar o aplicativo."),
+
+         );
+       }
+   );
+ }
 
   Widget _body() {
     return Scaffold(
@@ -70,13 +84,11 @@ class LoginPageState extends State<LoginPageWidget> {
                         ),
                         ElevatedButton(
                             onPressed: () {
-                              if (email == "email" && password == "senha") {
-                                print("Entrou!");
-                                Navigator.of(context).pushReplacementNamed('/home');
+                              if (!_termo_e_condicoes!) {
+                                _mostrarTermos_e_Condicoes();
                               } else {
                                 print("Email ou senha incorecta.");
-                                Navigator.of(context).pushReplacementNamed('/home');
-
+                                Navigator.of(context).pushNamed('/home');
                               }
                             },
                             style: ButtonStyle(
@@ -84,14 +96,28 @@ class LoginPageState extends State<LoginPageWidget> {
                                 minimumSize: MaterialStateProperty.all(Size(double.infinity, 50)),
 
                             ),
-                            child: const Text("Entrar", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),))
-                      ],
+                            child: const Text("Entrar", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),)),
+                        Container(
+                          height: 16,
+                        ),
+                        TextButton(onPressed: (){
+
+                        }, child: Text("Esqueci a minha senha.", style: TextStyle(color: Colors.black.withOpacity(0.50))))
+
+                    ],
                     ),
                   ),
                 ),
                 Container(height: 32,),
                 Row(
-                  children: [Checkbox(value: true, onChanged: (value){}, fillColor: MaterialStateProperty.all(Colors.white), checkColor: Color.fromRGBO(0, 98, 175, 1),),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Checkbox(value: _termo_e_condicoes,
+                      onChanged: (value){setState(() {
+                    _termo_e_condicoes = value;
+                  });}, fillColor: MaterialStateProperty.all(Colors.white), checkColor: Color.fromRGBO(0, 98, 175, 1),
+
+                    ),
                   Text("Termos e condições aplicaveis.", style: TextStyle(color: Colors.white.withOpacity(0.75)),)],)
               ],
             ),
