@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 
@@ -20,7 +19,7 @@ class LoginPageState extends State<LoginPageWidget> {
    return showDialog(
        context: context,
        builder: (context){
-         return AlertDialog(
+         return const AlertDialog(
            title: Text("Aceite os termos e condições aplicaveis."),
            content: Text("Tens de aceitar os termos e condicoes para poder usar o aplicativo."),
 
