@@ -28,7 +28,7 @@ class HomeController{
     double fromValue = double.tryParse(fromText.replaceAll(',', '.')) ?? 1.0 ;
     double toValue = _newValue(toCurrencyModel!, fromValue);
     
-    toText!.text= toValue.toString();
+    toText!.text= toValue.toStringAsPrecision(2).toString();
   }
 
   double _newValue(CurrencyModel to, double value){
